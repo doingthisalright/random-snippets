@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KeyStrokes</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .animate {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 14vw;
+            font-family: 'Montserrat-extrabold';
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: white;
+            animation-name: animate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-duration: 3s;
+        }
+
+        .animate:nth-of-type(1) {
+            animation-delay: 0.5s;
+        }
+        .animate:nth-of-type(2) {
+            animation-delay: 0.3s;
+        }
+        .animate:nth-of-type(3) {
+            animation-delay: 0.1s;
+        }
+        .animate:nth-of-type(4) {
+            animation-delay: -0.1s;
+        }
+
+        @keyframes animate {
+            0%, 100% {
+                transform: translate(-50%, -40%) scale(0.90);
+            }
+
+            50% {
+                transform: translate(-50%, -60%) scale(1.10);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animate" style="color: blue;">
+        Key Strokes!!
+    </div>
+    <div class="animate" style="color: red;">
+        Key Strokes!!
+    </div>
+    <div class="animate" style="color: green;">
+        Key Strokes!!
+    </div>
+    <div class="animate" style="color: purple;">
+        Key Strokes!!
+    </div>
+</body>
+</html>
