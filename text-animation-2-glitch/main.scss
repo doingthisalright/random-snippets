@@ -1,0 +1,62 @@
+html, body {
+    font-family: "Montserrat-extrabold";
+    background: black;
+    margin: 0;
+}
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.glitch {
+    color: white;
+    font-size: 6em;
+    letter-spacing: .3em;
+    padding: 0;
+    margin: 0;
+
+    animation: glitch 1s infinite;
+
+    &::before {
+        position: absolute;
+        content: attr(data-text);
+        top: 0;
+        left: 2px;
+        width: 100%;
+        text-shadow: -2px 0 red;
+        animation: glitch-mirror 5s infinite;
+    }
+
+    &::after {
+        position: absolute;
+        content: attr(data-text);
+        top: 0;
+        left: -2px;
+        width: 100%;
+        text-shadow: -2px 0 greenyellow, 2px 2px red;
+        animation: glitch-mirror 1s infinite;
+    }
+}
+
+@keyframes glitch {
+    $frames: 10;
+    @for $loop from 0 through $frames {
+        #{percentage($loop/$frames)} {
+            transform: skew(random(10) - 5 + deg);
+        }
+    }
+}
+
+@keyframes glitch-mirror {
+    $frames: 20;
+    @for $loop from 0 through $frames {
+        #{percentage($loop/$frames)} {
+            clip-path: inset(percentage(random(200)/100) 0%);
+            transform: skew((random(100)/100) + deg);
+        }
+    }
+}
